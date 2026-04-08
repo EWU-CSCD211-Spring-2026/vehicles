@@ -7,10 +7,12 @@ public class App {
 
         System.out.println("main method setup");
 
-        // SubaruCar c = new SubaruCar(10, "red", "A");
-        // ToyotaCar c2 = new ToyotaCar(100, "blue");
-        // System.out.println("Sub: " + c.toString());
-        // System.out.println("Toyota: " + c2.toString());
+         Car subaru = new Car("red", "Subaru");
+         subaru.accelerate();
+
+         Car toyota = new Car("blue", "Toyota");
+         toyota.accelerate();
+
 
     }
 

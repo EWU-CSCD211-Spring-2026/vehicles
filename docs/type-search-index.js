@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html","k":"18"},{"p":"model","l":"Bike"},{"p":"model","l":"Car"},{"p":"model","l":"SubaruCar"},{"p":"model","l":"ToyotaCar"},{"p":"model","l":"Vehicle"}];updateSearchResults();
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html","k":"18"},{"p":"model","l":"Bike"},{"p":"model","l":"Car"},{"p":"model","l":"Vehicle"}];updateSearchResults();
