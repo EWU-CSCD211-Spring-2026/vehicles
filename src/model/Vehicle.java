@@ -3,7 +3,7 @@ package model;
 /**
  * Represents a Vehicle
  */
-public class Vehicle {
+public abstract class Vehicle {
 
     private String color;
 
@@ -26,9 +26,9 @@ public class Vehicle {
 
     /**
      * accelerate the vehicle
+     * Perform neceessary setup
+     * Check systems
      */
-    public void accelerate() {
-        System.out.println("Vroom. Vehicle accelerating.");
-    }
+    public abstract void accelerate();
 
 }

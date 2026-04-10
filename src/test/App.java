@@ -6,12 +6,21 @@ public class App {
     public static void main(String[] args) {
 
         System.out.println("main method setup");
+        DriveTrain awd = new DriveTrain("AWD");
 
-         Car subaru = new Car("red", "Subaru");
-         subaru.accelerate();
+         Car subaruForester = new Car("red", 
+            "Subaru", 
+            awd,
+            -5);
 
-         Car toyota = new Car("blue", "Toyota");
-         toyota.accelerate();
+         subaruForester.accelerate();
+
+         Car toyota4Runner = new Car("black", 
+            "Toyota",
+            new DriveTrain("RWD"),
+            6);
+
+         toyota4Runner.accelerate();
 
 
     }
