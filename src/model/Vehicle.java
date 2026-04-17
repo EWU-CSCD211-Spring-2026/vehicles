@@ -3,7 +3,7 @@ package model;
 /**
  * Represents a Vehicle
  */
-public abstract class Vehicle {
+public abstract class Vehicle extends Object {
 
     private String color;
 
@@ -30,5 +30,36 @@ public abstract class Vehicle {
      * Check systems
      */
     public abstract void accelerate();
+
+    @Override
+    public String toString() {
+        return "color: " + color;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+
+        if (obj == null) {
+            return false;
+        }
+
+        if (this.getClass() != obj.getClass()) {
+            return false;
+        }
+        Vehicle other = (Vehicle) obj;
+
+        if (!(this.color.equals(other.color))) {
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int res = color.hashCode();
+
+        return res;
+    }
 
 }

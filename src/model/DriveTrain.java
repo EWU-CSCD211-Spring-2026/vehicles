@@ -16,4 +16,25 @@ public class DriveTrain {
         this.type = type;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+
+        if (this.getClass() != obj.getClass()) {
+            return false;
+        }
+        DriveTrain other = (DriveTrain) obj;
+        if (!(this.type.equals(other.type))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return type.hashCode();
+    }
+
 }
