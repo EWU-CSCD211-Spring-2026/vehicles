@@ -1,9 +1,9 @@
 package model;
-
+import datastore.*;
 /**
  * Represents a Vehicle
  */
-public abstract class Vehicle extends Object {
+public abstract class Vehicle implements CsvStorable {
 
     private String color;
 
@@ -61,5 +61,7 @@ public abstract class Vehicle extends Object {
 
         return res;
     }
+
+
 
 }

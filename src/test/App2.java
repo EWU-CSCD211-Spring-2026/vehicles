@@ -12,10 +12,22 @@ public class App2 {
 
         Person p = new Person("Alice");
         c1.addPassenger(p);
+        c2.accelerate();
 
         c1.driveTo("Spokane");
 
         System.out.println("c1.equals(c2): " + c1.equals(c2));
+
+
+        Bike b1 = new Bike("red");
+
+        Vehicle[] vehicles = new Vehicle[2];
+        vehicles[0] = c1;
+        vehicles[1] = b1;
+
+        for (int i = 0 ; i< vehicles.length; i++ ) {
+            vehicles[i].toCsv();
+        }
 
     }
 

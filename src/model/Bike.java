@@ -5,7 +5,9 @@ package model;
  */
 public class Bike extends Vehicle {
 
-    private String brakeType;
+    private final String brakeType;
+    private final String handlebarType;
+
     
     /**
      * Initialize bike with parameters
@@ -14,6 +16,7 @@ public class Bike extends Vehicle {
     public Bike(String color) {
         super(color);
         this.brakeType = "pad";
+        this.handlebarType = "straight";
     }
 
     /**
@@ -22,6 +25,16 @@ public class Bike extends Vehicle {
     @Override
     public void accelerate() {
         System.out.println("Turn bike pedal");
+    }
+
+    @Override
+    public void toCsv() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("brakeType,handlebarType\n");
+        sb.append(this.brakeType + "," + this.handlebarType + "\n");
+        String lines = sb.toString();
+
+        System.out.println(lines);
     }
 
 }

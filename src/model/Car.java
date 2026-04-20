@@ -7,11 +7,11 @@ package model;
 public class Car extends Vehicle implements IPassengerCarrier, Driveable {
 
     private int speed;
-    private String brand; // Subaru, Toyota, etc.?
-    private DriveTrain driveTrain;
+    private final String brand; // Subaru, Toyota, etc.?
+    private final DriveTrain driveTrain;
     private Person[] passengers;
     private int totalPassengers;
-    private int passengerCapacity;
+    private final int passengerCapacity;
 
     /**
      * Initialize a car with a color and a brand
@@ -95,10 +95,6 @@ public class Car extends Vehicle implements IPassengerCarrier, Driveable {
 
         Car other = (Car) obj;
 
-        if (this.speed != other.speed) {
-            System.out.println("speed is different");
-            return false;
-        }
         if (!(this.brand.equals(other.brand))) {
             System.out.println("brand is different");
             return false;
@@ -108,12 +104,59 @@ public class Car extends Vehicle implements IPassengerCarrier, Driveable {
             return false;
         }
         // if the length of the array and each element is equal
+        //
+        if (this.passengerCapacity != other.passengerCapacity) {
+            return false;
+        }
+
+        //if (this.totalPassengers != other.totalPassengers) {
+            //return false;
+        //}
+
+        //for (int i = 0; i < this.totalPassengers; i++) {
+            //if (this.passengers[i] == null && other.passengers[i] == null) {
+                //continue;
+            //}
+
+            //if (this.passengers[i] != null && !(this.passengers[i].equals(other.passengers[i])) {
+                //return false;
+            //}
+        //}
 
         return true;
     }
 
+    @Override 
+    public int hashCode() {
+        int res = brand.hashCode();
+        res = 31 * res + driveTrain.hashCode();
+
+        // let's omit passengers from hashCode
+        //for (int i = 0; i < this.totalPassengers; i++) {
+            //if (this.passengers[i] != null) {
+                //res = 31 * res + this.passengers[i].hashCode();
+            //}
+        //}
+        res = 31 * res + this.passengerCapacity;
+        //res = 31 * res + this.totalPassengers;
+
+        return res;
+
+    }
+
+
+
     @Override
     public void driveTo(String dest) {
         System.out.println("driving to " + dest);
+    }
+
+
+    @Override
+    public void toCsv() {
+        String lines = "brand,passengerCapacity\n";
+        lines += this.brand + "," + this.passengerCapacity + "\n";
+
+        System.out.println(lines);
     }
 }
