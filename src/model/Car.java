@@ -4,9 +4,10 @@ package model;
 /**
  * Represents a Car
  */
-public class Car extends Vehicle implements IPassengerCarrier, Driveable {
+public class Car extends Vehicle implements IPassengerCarrier, Driveable, Comparable<Car> {
 
     private int speed;
+    private final int topSpeed;
     private final String brand; // Subaru, Toyota, etc.?
     private final DriveTrain driveTrain;
     private Person[] passengers;
@@ -22,15 +23,18 @@ public class Car extends Vehicle implements IPassengerCarrier, Driveable {
     public Car(String color, 
         String brand, 
         DriveTrain driveTrain,
-        int passengerCapacity
+        int passengerCapacity,
+        int topSpeed,
+        int price
     ) {
-        super(color);
+        super(color, price);
         this.speed = 0;
         this.brand = brand;
         this.driveTrain = driveTrain;
         this.passengerCapacity = passengerCapacity;
         this.passengers = new Person[passengerCapacity];
         this.totalPassengers = 0;
+        this.topSpeed = topSpeed;
         System.out.println("Initializing " + color + " " + brand + " car with " + this.passengerCapacity + " passenger capacity.");
     }
 
@@ -39,7 +43,11 @@ public class Car extends Vehicle implements IPassengerCarrier, Driveable {
      */
     @Override
     public String toString() {
-        return "Car, speed=" + this.speed + ", color = " + getColor();
+        return "Car speed=" + this.speed + 
+            "; color = " + getColor() +
+            "; topSpeed = " + this.topSpeed + 
+            "; price = " + getPrice() +
+            "; passengerCapacity = " + this.passengerCapacity;
     }
 
 
@@ -159,4 +167,37 @@ public class Car extends Vehicle implements IPassengerCarrier, Driveable {
 
         System.out.println(lines);
     }
+
+    @Override
+    public int compareTo(Car other) {
+
+        if (getPrice() > other.getPrice()) {
+            return 1;
+        } else if (getPrice() < other.getPrice()) {
+            return -1;
+        } else {
+
+            if (this.passengerCapacity > other.passengerCapacity) {
+                return 1;
+            } else if (this.passengerCapacity < other.passengerCapacity) {
+                return -1;
+            } else {
+
+                if (this.topSpeed > other.topSpeed) {
+                    return 1;
+                } else if (this.topSpeed < other.topSpeed) {
+                    return -1;
+                } else {
+
+                    return 0;
+
+                }
+
+
+            }
+
+        }
+
+    }
 }
+

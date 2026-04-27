@@ -6,14 +6,21 @@ import datastore.*;
 public abstract class Vehicle implements CsvStorable {
 
     private String color;
+    private final int price;
+
 
     /**
      * Initialize a vehicle
      * @param color the color of the vehicle
      */
-    public Vehicle(String color) {
+    public Vehicle(String color, int price) {
         this.color = color;
+        this.price = price;
         System.out.println("Initializing vehicle");
+    }
+
+    public int getPrice() {
+        return price;
     }
 
     /**
@@ -33,7 +40,8 @@ public abstract class Vehicle implements CsvStorable {
 
     @Override
     public String toString() {
-        return "color: " + color;
+        return "color: " + color +
+            "; price = " + price;
     }
 
     @Override
@@ -52,12 +60,18 @@ public abstract class Vehicle implements CsvStorable {
             return false;
         }
 
+        if (this.price != other.price) {
+            return false;
+        }
+
         return true;
     }
 
     @Override
     public int hashCode() {
         int res = color.hashCode();
+
+        res = 31 * res + price;
 
         return res;
     }
