@@ -4,7 +4,7 @@ package model;
 /**
  * Represents a Car
  */
-public class Car extends Vehicle implements IPassengerCarrier, Driveable, Comparable<Car> {
+public class Car extends Vehicle implements Comparable<Car>, IPassengerCarrier, Driveable {
 
     private int speed;
     private final int topSpeed;
