@@ -52,7 +52,17 @@ public class LinkedList<T> implements List<T> {
 
     @Override
     public void addLast(T element) {
-        throw new RuntimeException("Not Implemented");
+        // step 1
+        Node<T> node = new Node<T>(element);
+
+        // step 2
+        this.tail.next = node;
+
+        // step 3
+        this.tail = node;
+
+        // step 4
+        size++;
     }
 
     @Override
@@ -62,7 +72,12 @@ public class LinkedList<T> implements List<T> {
 
     @Override 
     public int size() {
-        throw new RuntimeException("Not Implemented");
+        return size;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return (size == 0);
     }
 
     @Override
@@ -76,5 +91,27 @@ public class LinkedList<T> implements List<T> {
     }
 
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("size: " + this.size() + "\n");
+        sb.append("head: " + head.toString() + "\n");
+        sb.append("tail: " + tail.toString() + "\n");
+
+        Node<T> cur = head.next;
+
+        sb.append("[");
+        while (cur != null) {
+            sb.append(cur.toString() + ",");
+            cur = cur.next;
+
+        }
+        sb.append("]");
+        sb.append("\n");
+
+
+
+        return sb.toString();
+    }
 
 }

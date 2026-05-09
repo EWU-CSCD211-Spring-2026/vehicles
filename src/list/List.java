@@ -43,5 +43,11 @@ public interface List<T> {
      */
     void removeFirst(T element);
 
+    /**
+     * Retern whether the list is empty
+     * @return true if empty, false otherwise
+     */
+    boolean isEmpty();
+
 
 }
