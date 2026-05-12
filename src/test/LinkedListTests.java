@@ -1,5 +1,10 @@
 
 package test;
+import list.*;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class LinkedListTests {
@@ -17,7 +22,7 @@ public class LinkedListTests {
         list.addLast("C");
         
         // Assert
-        String expected = "[A,B,C,]";
+        String expected = "size: 3 head: null tail: C [A,B,C,]";
         String actual = list.toString();
         assertEquals(expected, actual);
 
@@ -29,7 +34,7 @@ public class LinkedListTests {
         List<Double> list = new LinkedList<>();
 
         // Act
-        list.add(0.2);
+        list.addLast(0.2);
 
         // Assert
         int expected = 1;

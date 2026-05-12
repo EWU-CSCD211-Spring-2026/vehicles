@@ -24,7 +24,7 @@ public class AppLinkedList {
 
         System.out.println("Test Pass/Fail: " + list.toString().equals("[A,B,C,]"));
 
-        List<String> list = new LinkedList<>();
+        list = new LinkedList<>();
 
         System.out.println(list.toString());
 

@@ -94,9 +94,9 @@ public class LinkedList<T> implements List<T> {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("size: " + this.size() + "\n");
-        sb.append("head: " + head.toString() + "\n");
-        sb.append("tail: " + tail.toString() + "\n");
+        sb.append("size: " + this.size() + " ");
+        sb.append("head: " + head.toString() + " ");
+        sb.append("tail: " + tail.toString() + " ");
 
         Node<T> cur = head.next;
 
@@ -107,9 +107,6 @@ public class LinkedList<T> implements List<T> {
 
         }
         sb.append("]");
-        sb.append("\n");
-
-
 
         return sb.toString();
     }
