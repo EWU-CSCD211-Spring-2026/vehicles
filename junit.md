@@ -36,7 +36,6 @@ or
 javac src/*.java -cp lib/junit-platform-console-standalone-6.0.0.jar -d bin
 ```
 
-javac src/*.java -cp 
 ## To discover tests 
 ```
 java -jar lib/* discover --class-path bin --scan-class-path
