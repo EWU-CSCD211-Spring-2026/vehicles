@@ -11,7 +11,7 @@ public class LinkedListTests {
 
 
     @Test
-    public void testAddABC() {
+    public void testAddLastABC() {
 
         // Arrange
         List<String> list = new LinkedList<>();
@@ -59,6 +59,41 @@ public class LinkedListTests {
 
         assertEquals(expected, actual);
         assertTrue(actual);
+    }
+
+    @Test
+    public void testAddFirst() {
+        // Arrange
+        List<Boolean> list = new LinkedList<>();
+
+        // Act
+        list.addFirst(true);
+        list.addFirst(false);
+
+        // Assert
+        String expected = "size: 2 head: null tail: true [false,true,]";
+        String actual = list.toString();
+        assertEquals(expected, actual);
+
+
+    }
+
+    @Test
+    public void testAddAtIndex() {
+        // Arrange
+        List<String> list = new LinkedList<>();
+        list.addLast("A");
+        list.addLast("B");
+        list.addFirst("C");
+
+        // Act
+        list.addAtIndex("D", 1);
+
+        // Assert
+        String expected = "size: 4 head: null tail: B [C,D,A,B,]";
+        String actual = list.toString();
+        assertEquals(expected, actual);
+
     }
 
 

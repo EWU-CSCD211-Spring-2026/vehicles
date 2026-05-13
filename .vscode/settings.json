@@ -1,5 +1,8 @@
 {
   "java.project.sourcePaths": ["src"],
   "java.project.outputPath": "bin",
-  "codeQL.githubDatabase.download": "never"
+  "codeQL.githubDatabase.download": "never",
+  "java.project.referencedLibraries": [
+    "lib/**/*.jar"
+  ]
 }

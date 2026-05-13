@@ -42,12 +42,29 @@ public class LinkedList<T> implements List<T> {
         this.size = 0;
         this.head = new Node<T>(); // dummy head node
         this.tail = this.head;
-
     }
 
     @Override
     public void addFirst(T element) {
-        throw new RuntimeException("Not Implemented");
+
+        if (size == 0) {
+            addLast(element);
+        } else {
+            // step 1
+            Node<T> newNode = new Node<T>(element);
+
+            // step 2
+            Node<T> temp = head.next;
+
+            // step 3
+            head.next = newNode;
+
+            // step 4
+            newNode.next = temp;
+
+            // step 5
+            size++;
+        }
     }
 
     @Override
@@ -67,7 +84,46 @@ public class LinkedList<T> implements List<T> {
 
     @Override
     public void addAtIndex(T element, int index) {
-        throw new RuntimeException("Not Implemented");
+
+
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException();
+        }
+        if (index == size) {
+            addLast(element);
+        } else if (index == 0) {
+            addFirst(element);
+        } else {
+
+            // step 3a
+            Node<T> newNode = new Node<T>(element);
+
+            // now the logic
+
+            // step 3b
+            int curIndex = 1;
+            Node<T> cur = head.next;
+
+            // step 3c
+            while (curIndex < index) {
+                curIndex++;
+                cur = cur.next;
+            }
+
+            //  step 3d
+            Node<T> temp = cur.next;
+
+            // step 3e
+            cur.next = newNode;
+
+            // step 3f
+            newNode.next = temp;
+
+            // step 3g
+            size++;
+
+        }
+
     }
 
     @Override 
@@ -82,7 +138,16 @@ public class LinkedList<T> implements List<T> {
 
     @Override
     public boolean contains(T element) {
-        throw new RuntimeException("Not Implemented");
+
+        Node<T> cur = head.next;
+        while (cur != null) {
+            if (cur.data.equals(element)) {
+                return true;
+            }
+            cur = cur.next;
+        }
+        return false;
+
     }
 
     @Override
